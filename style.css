@@ -1,0 +1,94 @@
+:root{
+  --navy:#16233F;
+  --paper:#F6F4EF;
+  --panel:#FFFFFF;
+  --slate:#5B6472;
+  --amber:#E39B3B;
+  --amber-deep:#C97E1F;
+  --green:#2F7A4F;
+  --green-bg:#E7F3EC;
+  --red:#B0402C;
+  --red-bg:#FBEAE6;
+  --line:#E2DED4;
+  --radius:10px;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+*{box-sizing:border-box;}
+body{margin:0; background:var(--paper); color:var(--navy); min-height:100vh;}
+
+.topbar{
+  background:var(--navy); color:#fff; padding:22px 32px;
+  display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:8px;
+}
+.brand{font-size:20px; font-weight:700;}
+.brand span{color:var(--amber);}
+.tag{font-size:12px; color:#B9C2D4; letter-spacing:0.5px; text-transform:uppercase;}
+
+.wrap{max-width:920px; margin:0 auto; padding:28px 20px 64px;}
+
+.tabs{display:flex; gap:6px; background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:6px; margin-bottom:22px;}
+.tab{
+  flex:1; text-align:center; padding:12px 10px; border-radius:7px; cursor:pointer;
+  font-size:14px; font-weight:600; color:var(--slate); border:none; background:none;
+  font-family:inherit; transition:background 0.15s ease, color 0.15s ease;
+}
+.tab:hover{background:#F1EFE8;}
+.tab.active{background:var(--navy); color:#fff;}
+.tab:focus-visible{outline:2px solid var(--amber); outline-offset:2px;}
+
+.panel{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:26px; display:none;}
+.panel.active{display:block;}
+.panel h2{margin:0 0 4px; font-size:19px;}
+.panel p.sub{margin:0 0 20px; color:var(--slate); font-size:14px;}
+
+.form-row{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:10px;}
+input[type=text]{
+  flex:1; min-width:200px; padding:11px 13px; border:1px solid var(--line);
+  border-radius:7px; font-size:14px; font-family:inherit;
+}
+input[type=text]:focus{outline:2px solid var(--amber); outline-offset:1px; border-color:var(--amber);}
+
+button{
+  background:var(--amber); color:var(--navy); border:none; padding:11px 20px;
+  border-radius:7px; font-weight:700; font-size:14px; cursor:pointer; font-family:inherit;
+}
+button:hover{background:var(--amber-deep); color:#fff;}
+button:focus-visible{outline:2px solid var(--navy); outline-offset:2px;}
+
+.hint{font-size:12.5px; color:var(--slate); margin:0 0 18px;}
+
+.result{border-top:1px dashed var(--line); padding-top:18px; margin-top:4px;}
+.empty{color:var(--slate); font-size:14px; padding:8px 0; margin:0;}
+
+.row{display:flex; justify-content:space-between; gap:16px; padding:10px 0; border-bottom:1px solid #F0EEE7; font-size:14px;}
+.row:last-child{border-bottom:none;}
+.row .k{color:var(--slate);}
+.row .v{font-weight:600; text-align:right;}
+
+.badge{display:inline-block; padding:3px 10px; border-radius:20px; font-size:12px; font-weight:700;}
+.badge.green{background:var(--green-bg); color:var(--green);}
+.badge.amber{background:#FBF1E1; color:var(--amber-deep);}
+.badge.red{background:var(--red-bg); color:var(--red);}
+
+.steps{display:flex; margin:18px 0 6px; position:relative;}
+.step{flex:1; text-align:center; position:relative; font-size:11.5px; color:var(--slate);}
+.step .dot{width:14px; height:14px; border-radius:50%; background:#E2DED4; margin:0 auto 6px; position:relative; z-index:2; border:2px solid var(--panel);}
+.step.done .dot{background:var(--green);}
+.step.current .dot{background:var(--amber);}
+.steps::before{content:""; position:absolute; top:7px; left:12.5%; right:12.5%; height:2px; background:#E2DED4; z-index:1;}
+
+textarea{width:100%; min-height:64px; border:1px solid var(--line); border-radius:7px; padding:11px 13px; font-family:inherit; font-size:14px; resize:vertical;}
+
+.action-row{display:flex; gap:10px; margin-top:14px; flex-wrap:wrap;}
+.btn-secondary{background:#fff; color:var(--navy); border:1px solid var(--navy);}
+.btn-secondary:hover{background:var(--navy); color:#fff;}
+
+.note{background:#F1EFE8; border-radius:7px; padding:12px 14px; font-size:13px; color:var(--slate); margin-top:16px;}
+
+.footer-note{text-align:center; font-size:12px; color:#9AA2AF; margin-top:30px;}
+
+@media (max-width:480px){
+  .topbar{padding:18px 18px;}
+  .panel{padding:18px;}
+  .tab{font-size:13px; padding:10px 6px;}
+}

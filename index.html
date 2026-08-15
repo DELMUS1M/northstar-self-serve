@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Northstar Self-Serve</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">Northstar<span>Self-Serve</span></div>
+  <div class="tag">Support Deflection MVP</div>
+</header>
+
+<main class="wrap">
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-tab="order" role="tab" aria-selected="true">Order Status</button>
+    <button class="tab" data-tab="return" role="tab" aria-selected="false">Returns &amp; Refunds</button>
+    <button class="tab" data-tab="stock" role="tab" aria-selected="false">Stock Availability</button>
+  </nav>
+
+  <!-- ORDER STATUS -->
+  <section class="panel active" id="order">
+    <h2>Where's my order?</h2>
+    <p class="sub">Enter your order number to see live status — no ticket needed.</p>
+    <div class="form-row">
+      <input type="text" id="orderInput" placeholder="Order number, e.g. NS-10234" list="orderIds">
+      <datalist id="orderIds"></datalist>
+      <button onclick="lookupOrder()">Check status</button>
+    </div>
+    <p class="hint">Try NS-10234, NS-10298, or NS-10310</p>
+    <div class="result" id="orderResult">
+      <p class="empty">Enter an order number above to see its status.</p>
+    </div>
+  </section>
+
+  <!-- RETURNS -->
+  <section class="panel" id="return">
+    <h2>Returns &amp; refunds</h2>
+    <p class="sub">Check eligibility, start a return, or track a refund.</p>
+    <div class="form-row">
+      <input type="text" id="returnInput" placeholder="Order number, e.g. NS-10234" list="orderIds">
+      <button onclick="lookupReturn()">Check eligibility</button>
+    </div>
+    <p class="hint">Try NS-10234, NS-10298, or NS-10310</p>
+    <div class="result" id="returnResult">
+      <p class="empty">Enter an order number above to check return status.</p>
+    </div>
+  </section>
+
+  <!-- STOCK -->
+  <section class="panel" id="stock">
+    <h2>Is it back in stock?</h2>
+    <p class="sub">Search a product to see availability by size, or ask to be notified.</p>
+    <div class="form-row">
+      <input type="text" id="stockInput" placeholder="Product name, e.g. Trail Runner Jacket" list="productNames">
+      <datalist id="productNames"></datalist>
+      <button onclick="lookupStock()">Search</button>
+    </div>
+    <p class="hint">Try "Trail Runner Jacket", "Canvas Tote", or "Everyday Sneaker"</p>
+    <div class="result" id="stockResult">
+      <p class="empty">Search a product above to see stock by size.</p>
+    </div>
+  </section>
+
+  <footer class="footer-note">Northstar Retail Co. · Internal MVP · Sample data only</footer>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
